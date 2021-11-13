@@ -51,7 +51,6 @@ public class Fly {
             }
             this.mass += growthAmount;
         }
-
     }
 
     private boolean isDead() {
@@ -61,4 +60,5 @@ public class Fly {
         }
         return isDead;
     }
+    
 }
