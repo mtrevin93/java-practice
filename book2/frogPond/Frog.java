@@ -1,3 +1,5 @@
+import java.time.temporal.IsoFields;
+
 public class Frog {
     //instance variables
     private String name;
@@ -13,30 +15,54 @@ public class Frog {
 
     public Frog(String name) {
         this(name, defaultTongueSpeed, defaultAge);
+        this.isFroglet = true;
     }
     
     public Frog(String name, double tongueSpeed, int age) {
         this.name = name;
         this.tongueSpeed = tongueSpeed;
         this.age = age;
+        if (1 < this.age && this.age < 7) {
+            this.isFroglet = true;
+        }
     }
 
     public Frog(String name, double tongueSpeed, double ageInYears) {
         this.name = name;
         this.tongueSpeed = tongueSpeed;
-        this.age = (int)ageInYears;
+        this.age = (int)ageInYears*12;
+        if (1 < this.age && this.age < 7) {
+            this.isFroglet = true;
+        }
     }
+
+    private void grow(int months) {
+        int monthsUntil12 = 12 - this.age;
+        if (monthsUntil12 > 0) {
+            if (months < monthsUntil12) {
+                tongueSpeed += months;
+            }
+            else tongueSpeed += monthsUntil12;
+        }
+        if (this.age + months > 30) {
+            int monthsAfter30 = this.age+months - 30;
+            this.tongueSpeed -= monthsAfter30;
+        }
+        this.age += months;
+        if (this.tongueSpeed < 5) {
+            this.tongueSpeed = 5;
+        }
+        if (1 < this.age && this.age < 7) {
+            this.isFroglet = true;
+        }
+    }
+
+
+
 }
 
 
-// Methods
-// You must use method overloading at least once. Do not create any other methods than those specified. Any extra methods will result in point deductions. All methods must have the proper visibility to be used where it is specified they are used.
 
-// grow - takes in a whole number parameter representing the number of months.
-// Then it ages the Frog by the given number of months and increases tongueSpeed by 1 for every month the Frog grows until it becomes 12 months old.
-// If the Frog is 30 months old or more, then decrease tongueSpeed by 1 for every month that it ages beyond 30 months.
-// You must not decrease tongueSpeed to less than 5.
-// Remember to update isFroglet accordingly
 // grow - takes in no parameters and ages the Frog by one month and updates tongueSpeed accordingly as for the other grow method
 // eat – takes in a parameter of a Fly to attempt to catch and eat.
 // Check if Fly is dead, and if it is dead then terminate the method.
