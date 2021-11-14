@@ -11,20 +11,14 @@ public class Frog {
     public static final int defaultAge = 5;
 
     public Frog(String name) {
-        this(name, defaultAge, defaultTongueSpeed);
-        this.isFroglet = true;
+        this(name, (double)defaultAge, defaultTongueSpeed);
     }
     
     public Frog(String name, int age, double tongueSpeed) {
-        this.name = name;
-        this.tongueSpeed = tongueSpeed;
-        this.age = age;
-        if (1 < this.age && this.age < 7) {
-            this.isFroglet = true;
-        }
+        this(name, (double)age/12, tongueSpeed);
     }
 
-    public Frog(String name, double tongueSpeed, double ageInYears) {
+    public Frog(String name, double ageInYears, double tongueSpeed) {
         this.name = name;
         this.tongueSpeed = tongueSpeed;
         this.age = (int)ageInYears*12;
