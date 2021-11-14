@@ -3,13 +3,13 @@ public class Pond {
     public static void main (String[] args) {
 
         Frog Peepo = new Frog("Peepo");
-        Frog Pepe = new Frog("Pepe", 15, 10);
-        Frog Peepaw = new Frog("Peepaw", 5, 4.6);
+        Frog Pepe = new Frog("Pepe", 10,15);
+        Frog Peepaw = new Frog("Peepaw", 4.6, 5);
         Frog Pepper = new Frog("Pepper");
 
         Fly fly1 = new Fly(1, 3);
         Fly fly2 = new Fly(6);
-        Fly fly3 = new Fly(1, 1);
+        Fly fly3 = new Fly(21, 1);
 
         Frog.species = "1331 Frogs";
         System.out.println(Peepo);

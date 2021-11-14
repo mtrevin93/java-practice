@@ -38,23 +38,23 @@ public class Fly {
 
     public String toString() {
         if (this.mass == 0) {
-            return "I'm dead, but I used to be a fly with a speed of " + this.speed;
+            return "I'm dead, but I used to be a fly with a speed of " + this.speed + ".";
         }
         else return "I'm a speedy fly with " + String.format("%.2f", speed) + " speed and " + String.format("%.2f", mass) + " mass.";
     }
 
     public void grow(int growthAmount) {
-        if (mass > 20) {
+        if (mass < 20) {
             double growthUntil20 = 20 - mass;
             if (growthAmount > growthUntil20) {
                 this.speed += growthUntil20;
                 this.speed -= (growthAmount - growthUntil20) * 0.5;
             }
-            else {
-                this.speed -= growthAmount * 0.5;
-            }
-            setMass(mass+growthAmount);
         }
+        else {
+            this.speed -= growthAmount * 0.5;
+        }
+        mass += growthAmount;
     }
 
     public boolean isDead() {

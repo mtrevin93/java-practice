@@ -11,11 +11,11 @@ public class Frog {
     public static final int defaultAge = 5;
 
     public Frog(String name) {
-        this(name, defaultTongueSpeed, defaultAge);
+        this(name, defaultAge, defaultTongueSpeed);
         this.isFroglet = true;
     }
     
-    public Frog(String name, double tongueSpeed, int age) {
+    public Frog(String name, int age, double tongueSpeed) {
         this.name = name;
         this.tongueSpeed = tongueSpeed;
         this.age = age;
