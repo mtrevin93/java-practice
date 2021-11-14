@@ -36,10 +36,10 @@ public class Fly {
         if (this.mass == 0) {
             return "I'm dead, but I used to be a fly with a speed of " + this.speed;
         }
-        else return "I'm a speedy fly with " + speed + "speed and " + mass + " mass";
+        else return "I'm a speedy fly with " + String.format("%.2f", speed) + " speed and " + String.format("%.2f", mass) + " mass";
     }
 
-    private void grow(int growthAmount) {
+    public void grow(int growthAmount) {
         if (this.mass > 20) {
             double growthUntil20 = 20 - this.mass;
             if (growthAmount - growthUntil20 > 0) {
@@ -53,12 +53,12 @@ public class Fly {
         }
     }
 
-    private boolean isDead() {
+    public boolean isDead() {
         boolean isDead = false;
         if (this.mass == 0) {
             isDead = true;
         }
         return isDead;
     }
-    
+
 }
