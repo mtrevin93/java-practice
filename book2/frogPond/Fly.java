@@ -46,9 +46,12 @@ public class Fly {
     public void grow(int growthAmount) {
         if (mass < 20) {
             double growthUntil20 = 20 - mass;
-            if (growthAmount > growthUntil20) {
+            if (growthAmount >= growthUntil20) {
                 this.speed += growthUntil20;
                 this.speed -= (growthAmount - growthUntil20) * 0.5;
+            }
+            else {
+                this.speed += growthAmount;
             }
         }
         else {

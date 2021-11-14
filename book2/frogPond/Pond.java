@@ -9,9 +9,10 @@ public class Pond {
 
         Fly fly1 = new Fly(1, 3);
         Fly fly2 = new Fly(6);
-        Fly fly3 = new Fly(21, 1);
+        Fly fly3 = new Fly(1, 1);
+        Pepper.grow();
 
-        Frog.species = "1331 Frogs";
+        Frog.setSpecies("1331 Frogs");
         System.out.println(Peepo);
         Peepo.eat(fly2);
         System.out.println(fly2);
