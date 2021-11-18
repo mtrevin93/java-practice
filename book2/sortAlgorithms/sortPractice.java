@@ -8,7 +8,7 @@ public class sortPractice {
         int sortedValues = 0;
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = sortedValues;
-            for (int j = sortedValues; j < arr.length; j++) {
+            for (int j = sortedValues + 1; j < arr.length; j++) {
                 if (arr[j] < arr[minIndex]) {
                     minIndex = j;
                 }
