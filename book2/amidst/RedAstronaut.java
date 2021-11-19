@@ -38,7 +38,15 @@ public class RedAstronaut extends Player implements Impostor {
     }
 
     public void sabotage(Player p) {
-        return;
+        if (isFrozen() || p.isFrozen()) {
+            return;
+        }
+        if (getSusLevel() < 20) {
+            p.setSusLevel((int)(p.getSusLevel()*1.5));
+        }
+        else {
+            p.setSusLevel((int)(p.getSusLevel()*1.25));
+        }
     }
 
     public void freeze(Player p) {
@@ -55,6 +63,14 @@ public class RedAstronaut extends Player implements Impostor {
             setSusLevel(getSusLevel()*2);
         }
         gameOver();
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        skill = skill.toLowerCase();
     }
 
 }
