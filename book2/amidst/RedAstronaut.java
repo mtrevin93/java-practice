@@ -65,6 +65,28 @@ public class RedAstronaut extends Player implements Impostor {
         gameOver();
     }
 
+    public boolean equals(Object o) {
+        if (o instanceof Player && o instanceof RedAstronaut) {
+            Player player = (Player) o;
+            RedAstronaut red = (RedAstronaut) o;
+            return this.getName().equals(player.getName()) && this.isFrozen() == player.isFrozen()
+                    && this.getSusLevel() == player.getSusLevel() && this.getSkill() == red.getSkill();
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        String string = super.toString() + "I am a " + getSkill() + "player!";
+
+        if (getSusLevel() > 15) {
+            return string.toUpperCase();
+        }
+        else {
+            return string;
+        }
+    }
+
     public String getSkill() {
         return skill;
     }
