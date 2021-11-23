@@ -13,23 +13,40 @@ public class RedAstronaut extends Player implements Impostor {
 
     public RedAstronaut(String name, int susLevel, String skill) {
         super(name, susLevel);
-        skill = skill.toLowerCase();
+        this.skill = skill.toLowerCase();
     }
 
     public void emergencyMeeting() {
         var playerArray = getPlayers();
+        int unfrozenPlayerCount = 0;
+        for (Player p : playerArray) {
+            if (p.isFrozen()) {
+                continue;
+            }
+            else {
+                unfrozenPlayerCount++;
+            }
+        } 
+        Player [] unfrozenPlayerArray = new Player[unfrozenPlayerCount];
+        int index = 0;
+        for (Player p : playerArray) {
+            if (!p.isFrozen()) {
+                unfrozenPlayerArray[index] = p;
+                index++;
+            }
+        }
 
-        if(playerArray.length <= 2) {
+        if(unfrozenPlayerArray.length <= 2) {
             return;
         }
 
-        Arrays.sort(playerArray);
-        Player mostSus = playerArray[playerArray.length-1];
+        Arrays.sort(unfrozenPlayerArray);
+        Player mostSus = unfrozenPlayerArray[unfrozenPlayerArray.length-1];
 
         if (this.getSusLevel() == mostSus.getSusLevel()) {
             return;
         }
-        if (mostSus.getSusLevel() == playerArray[playerArray.length-2].getSusLevel()) {
+        if (mostSus.getSusLevel() == unfrozenPlayerArray[unfrozenPlayerArray.length-2].getSusLevel()) {
             return;
         }
 
