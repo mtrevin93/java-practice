@@ -94,7 +94,7 @@ public class RedAstronaut extends Player implements Impostor {
 
     @Override
     public String toString() {
-        String string = super.toString() + "I am a " + getSkill() + "player!";
+        String string = super.toString() + " I am a " + getSkill() + "player!";
 
         if (getSusLevel() > 15) {
             return string.toUpperCase();

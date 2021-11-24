@@ -61,7 +61,7 @@ public class BlueAstronaut extends Player implements Crewmate {
     }
 
     public void completeTask() {
-        if (isFrozen()) {
+        if (isFrozen() || numTasks == 0) {
             return;
         }
         if (taskSpeed > 20) {
@@ -92,7 +92,7 @@ public class BlueAstronaut extends Player implements Crewmate {
 
     @Override
     public String toString() {
-        String string = super.toString() + "I have " + numTasks + " left over";
+        String string = super.toString() + " I have " + numTasks + " left over";
 
         if (getSusLevel() > 15) {
             return string.toUpperCase();

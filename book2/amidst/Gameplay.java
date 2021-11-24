@@ -29,6 +29,7 @@ public class Gameplay {
         Heath.completeTask();
         System.out.println(Heath);
         Heath.completeTask();
+        System.out.println(Heath);
 
         Liam.freeze(Angel);
         System.out.println(Liam);
@@ -40,7 +41,17 @@ public class Gameplay {
         Liam.freeze(Bob);
         System.out.println(Bob);
 
-        Angel.emergencyMeeting();
+        System.out.println(Liam);
+        System.out.println(Heath);
+
+        Liam.sabotage(Heath);
+        Liam.sabotage(Heath);
+        Liam.sabotage(Heath);
+        Liam.sabotage(Heath);
+        Liam.sabotage(Heath);
+        Liam.freeze(Heath);
+
+        System.out.println(Heath);
 
     }
 
