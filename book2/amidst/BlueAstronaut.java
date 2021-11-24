@@ -23,7 +23,7 @@ public class BlueAstronaut extends Player implements Crewmate {
         if (isFrozen()) {
             return;
         }
-        var playerArray = getPlayers();
+        Player[] playerArray = getPlayers();
         int unfrozenPlayerCount = 0;
         for (Player p : playerArray) {
             if (p.isFrozen()) {
@@ -42,16 +42,13 @@ public class BlueAstronaut extends Player implements Crewmate {
             }
         }
 
-        if(unfrozenPlayerArray.length <= 2) {
+        if(unfrozenPlayerArray.length < 2) {
             return;
         }
 
         Arrays.sort(unfrozenPlayerArray);
         Player mostSus = unfrozenPlayerArray[unfrozenPlayerArray.length-1];
 
-        if (this.getSusLevel() == mostSus.getSusLevel()) {
-            return;
-        }
         if (mostSus.getSusLevel() == unfrozenPlayerArray[unfrozenPlayerArray.length-2].getSusLevel()) {
             return;
         }

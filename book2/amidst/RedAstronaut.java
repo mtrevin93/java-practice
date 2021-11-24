@@ -17,7 +17,10 @@ public class RedAstronaut extends Player implements Impostor {
     }
 
     public void emergencyMeeting() {
-        var playerArray = getPlayers();
+        if (isFrozen()) {
+            return;
+        }
+        Player[] playerArray = getPlayers();
         int unfrozenPlayerCount = 0;
         for (Player p : playerArray) {
             if (p.isFrozen()) {
@@ -36,7 +39,7 @@ public class RedAstronaut extends Player implements Impostor {
             }
         }
 
-        if(unfrozenPlayerArray.length <= 2) {
+        if(unfrozenPlayerArray.length < 2) {
             return;
         }
 
@@ -44,7 +47,7 @@ public class RedAstronaut extends Player implements Impostor {
         Player mostSus = unfrozenPlayerArray[unfrozenPlayerArray.length-1];
 
         if (this.getSusLevel() == mostSus.getSusLevel()) {
-            return;
+            mostSus = unfrozenPlayerArray[unfrozenPlayerArray.length-2];
         }
         if (mostSus.getSusLevel() == unfrozenPlayerArray[unfrozenPlayerArray.length-2].getSusLevel()) {
             return;
